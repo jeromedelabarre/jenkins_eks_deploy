@@ -9,7 +9,7 @@ pipeline{
         FIRST_DEPLOY="N"
         STATE_BUCKET="cley-tfstate-bucket"
         CLUSTER_NAME="cley-eks"
-        PRISMA_API_URL=https://api2.eu.prismacloud.io
+        PRISMA_API_URL="https://api2.eu.prismacloud.io"
     }
 
     stages{
