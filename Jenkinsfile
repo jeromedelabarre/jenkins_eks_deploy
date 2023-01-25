@@ -15,7 +15,7 @@ pipeline{
     stages{
         stage('Checkout') {
           steps {
-              git branch: 'master', url: ''https://github.com/chrisley75/jenkins_eks_deploy.git''
+              git branch: 'main', url: "https://github.com/chrisley75/jenkins_eks_deploy.git"
               stash includes: '**/*', name: 'source'
           }
 
