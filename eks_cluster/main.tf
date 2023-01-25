@@ -19,11 +19,8 @@ resource "random_string" "suffix" {
   special = false
 }
 
-data "terraform_remote_state" "network_state" {
-  backend = "s3"
-  config= {
+backend "s3" {
     bucket = var.state_bucket
-    region = var.region
-    key    = var.state_key
-  }
+    region = var.state_region
+    key    = local.region
 }
