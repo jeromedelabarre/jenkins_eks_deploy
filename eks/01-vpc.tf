@@ -5,10 +5,6 @@ resource "random_id" "suffix" {
 
 data "aws_availability_zones" "available" {}
 
-locals {
-  EKS_CLUSTER_NAME	= "eks-${var.MASTER_NAME}"
-}
-
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
