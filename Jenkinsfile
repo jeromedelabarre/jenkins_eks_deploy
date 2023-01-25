@@ -22,12 +22,12 @@ pipeline{
         }
         stage('Checkov') {
             steps {
-                withCredentials([string(credentialsId: '4de3ad41-d00f-41b1-af4d-2d67b05048f1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([string(credentialsId: 'PC_USER', variable: 'pc_user'),string(credentialsId: 'PC_PASSWORD', variable: 'pc_password')])  {
                     script {
                         docker.image('bridgecrew/checkov:latest').inside("--entrypoint=''") {
                           unstash 'source'
                           try {
-                              sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --output-file-path console,results.xml --bc-api-key \$\{pc_user}::\$\{pc_password} --repo-id  chrisley75/jenkins_eks_deploy --branch main'
+                              sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  chrisley75/jenkins_eks_deploy --branch main'
                               junit skipPublishingChecks: true, testResults: 'results.xml'
                           } catch (err) {
                               junit skipPublishingChecks: true, testResults: 'results.xml'
