@@ -2,14 +2,14 @@ module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = "${local.EKS_CLUSTER_NAME}-${random_id.suffix.hex}"
   cluster_version = local.K8s_VERSION
-  subnets         = module.vpc.private_subnets
+  
 
   tags = {
     Environment = var.MASTER_NAME
   }
 
-  vpc_id = module.vpc.vpc_id
-
+  vpc_id          = module.vpc.vpc_id
+  subnets         = module.vpc.private_subnets_id
   worker_groups = [
     {
       name                          = "${local.EKS_CLUSTER_NAME}-worker-group-1"
