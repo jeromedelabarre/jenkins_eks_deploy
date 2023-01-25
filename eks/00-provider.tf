@@ -15,7 +15,7 @@ locals {
 }
 
 backend "s3" {
-    bucket = var.state_bucket
-    region = var.state_region
-    key    = local.region
+    bucket = "cley-tfstate-bucket"
+    key    = "cley-eks.tfstate"
+    region = "eu-west-3"
 }
