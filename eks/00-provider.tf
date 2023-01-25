@@ -6,8 +6,8 @@ provider "aws" {
 
 locals {
   EKS_CLUSTER_NAME	  = "eks-${var.MASTER_NAME}"
-  local.K8s_VERSION   = var.K8s_VERSION
-  region              = "eu-west-3"
+  K8s_VERSION         = var.K8s_VERSION
+  region              = var.state_region
 
   tags = {
     Name    = local.name
