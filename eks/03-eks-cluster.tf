@@ -1,7 +1,7 @@
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = "${local.EKS_CLUSTER_NAME}-${random_id.suffix.hex}"
-  cluster_version = var.K8s_VERSION
+  cluster_version = local.K8s_VERSION
   subnets         = module.vpc.private_subnets
 
   tags = {
