@@ -37,7 +37,7 @@ pipeline{
                             steps{
                                 withAWS(credentials: '39725218-cd8f-42a5-8857-c434967b37f5', region: "${env.AWS_DEFAULT_REGION}") {
                                     sh '''
-                                    cd eks
+                                    cd eks_cluster
                                     terraform init
                                     terraform validate'''
                                 }
@@ -48,7 +48,7 @@ pipeline{
                             steps{
                                 withAWS(credentials: '39725218-cd8f-42a5-8857-c434967b37f5', region: "${env.AWS_DEFAULT_REGION}") {
                                     sh '''
-                                    cd eks
+                                    cd eks_cluster
                                     terraform plan -out outfile
                                     terraform apply outfile'''
                                 }
@@ -82,7 +82,7 @@ pipeline{
                     steps{
                         withAWS(credentials: '39725218-cd8f-42a5-8857-c434967b37f5', region: "${env.AWS_DEFAULT_REGION}") {
                             sh '''
-                            cd eks
+                            cd eks_cluster
                             terraform init
                             terraform destroy -auto-approve
                             '''
