@@ -26,9 +26,7 @@ pipeline{
                     script {
 //                        docker.image('bridgecrew/checkov:latest').inside("--entrypoint=''") {
 //                          unstash 'source'*/
-                          try {
-                              sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --prisma-api-url ${PRISMA_API_URL} --repo-id  chrisley75/jenkins_eks_deploy --branch main'
-                          } 
+                            sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --prisma-api-url ${PRISMA_API_URL} --repo-id  chrisley75/jenkins_eks_deploy --branch main'
 //                        }
                     }
                 }
