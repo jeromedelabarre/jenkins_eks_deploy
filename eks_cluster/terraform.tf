@@ -27,5 +27,11 @@ terraform {
   }
 
   required_version = "~> 1.3"
+  
+  backend "s3" {
+    bucket = var.state_bucket
+    region = var.state_region
+    key    = var.region
+  }
 }
 
