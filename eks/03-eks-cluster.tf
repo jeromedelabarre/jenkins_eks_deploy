@@ -9,7 +9,7 @@ module "eks" {
   }
 
   vpc_id          = module.vpc.vpc_id
-  subnets_ids     = module.vpc.private_subnets_ids
+  subnet_ids     = module.vpc.private_subnets_ids
   worker_groups = [
     {
       name                          = "${local.EKS_CLUSTER_NAME}-worker-group-1"
