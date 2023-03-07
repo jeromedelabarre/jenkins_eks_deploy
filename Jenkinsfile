@@ -5,7 +5,7 @@ pipeline{
     environment{
         AWS_DEFAULT_REGION="eu-west-3"
         SKIP="N"
-        TERRADESTROY="Y"
+        TERRADESTROY="N"
         FIRST_DEPLOY="N"
         STATE_BUCKET="cley-tfstate-bucket"
         CLUSTER_NAME="cley-eks"
