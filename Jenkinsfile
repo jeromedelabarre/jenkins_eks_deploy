@@ -7,15 +7,15 @@ pipeline{
         SKIP="N"
         TERRADESTROY="Y"
         FIRST_DEPLOY="N"
-        STATE_BUCKET="cley-tfstate-bucket"
-        CLUSTER_NAME="cley-eks"
+        STATE_BUCKET="jej-tfstate-bucket"
+        CLUSTER_NAME="jej-eks"
         PRISMA_API_URL="https://api2.eu.prismacloud.io"
     }
 
     stages{
         stage('Checkout') {
           steps {
-              git branch: 'main', url: "https://github.com/chrisley75/jenkins_eks_deploy.git"
+              git branch: 'main', url: "https://github.com/jeromedelabarre/jenkins_eks_deploy.git"
               stash includes: '**/*', name: 'source'
           }
 
