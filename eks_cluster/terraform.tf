@@ -29,8 +29,8 @@ terraform {
   required_version = "~> 1.3"
 
   backend "s3" {
-    bucket = "cley-tfstate-bucket"
-    key    = "cley-eks.tfstate"
+    bucket = "jej-tfstate-bucket"
+    key    = "jej-eks.tfstate"
     region = "eu-west-3"
   }
 }
